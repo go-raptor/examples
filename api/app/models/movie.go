@@ -8,3 +8,5 @@ type Movie struct {
 	Description string `json:"description"`
 	Year        int    `json:"year"`
 }
+
+type Movies []Movie

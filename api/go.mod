@@ -2,10 +2,7 @@ module github.com/go-raptor/examples/api
 
 go 1.21.5
 
-require (
-	github.com/go-raptor/raptor v0.5.1
-	golang.org/x/exp v0.0.0-20231226003508-02704c960a9b
-)
+require github.com/go-raptor/raptor v0.5.1
 
 require (
 	github.com/BurntSushi/toml v1.3.2 // indirect

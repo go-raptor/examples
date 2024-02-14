@@ -7,6 +7,6 @@ import (
 
 func Services() raptor.Services {
 	return raptor.Services{
-		services.NewMoviesService(),
+		&services.MoviesService{},
 	}
 }

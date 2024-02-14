@@ -11,21 +11,25 @@ import (
 
 type MoviesController struct {
 	raptor.Controller
+}
 
-	Ms *services.MoviesService
+func (mc *MoviesController) Movies() *services.MoviesService {
+	return mc.Services["MoviesService"].(*services.MoviesService)
 }
 
 func (mc *MoviesController) Index(c *raptor.Context) error {
-	ms := mc.Services["MoviesService"].(*services.MoviesService)
-
-	return c.JSON(ms.All())
+	movies, err := mc.Movies().All()
+	if err != nil {
+		return c.JSON(models.NewError(http.StatusInternalServerError, err.Error()), http.StatusInternalServerError)
+	}
+	return c.JSON(movies)
 }
 
 func (mc *MoviesController) Get(c *raptor.Context) error {
 	ms := mc.Services["MoviesService"].(*services.MoviesService)
 	id, err := c.ParamsInt("id")
 	if err == nil {
-		if movie := ms.Find(id); movie != nil {
+		if movie, _ := ms.Find(id); movie != nil {
 			return c.JSON(movie)
 		}
 	}

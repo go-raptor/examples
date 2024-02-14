@@ -8,5 +8,6 @@ import (
 func Migrations() raptor.Migrations {
 	return raptor.Migrations{
 		1: migrate.AddMovies,
+		2: migrate.SeedMovies,
 	}
 }
