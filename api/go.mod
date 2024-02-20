@@ -1,14 +1,10 @@
 module github.com/go-raptor/examples/api
 
-go 1.22.0
-
-//replace github.com/go-raptor/raptor => ../../raptor
-
-//replace github.com/go-raptor/connector/sqlite => ../../connector/sqlite
+go 1.22
 
 require (
-	github.com/go-raptor/connector/sqlite v0.0.0-20240219222713-7ddcbb819a19
-	github.com/go-raptor/raptor v0.6.1
+	github.com/go-raptor/connector/sqlite v0.2.1
+	github.com/go-raptor/raptor v0.6.2
 )
 
 require (
